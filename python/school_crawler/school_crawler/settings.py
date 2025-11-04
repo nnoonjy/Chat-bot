@@ -1,3 +1,20 @@
+import os
+from dotenv import load_dotenv
+
+# 프로젝트 루트 경로 기준으로 .env 로드
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+ENV_PATH = os.path.join(os.path.dirname(BASE_DIR), ".env")
+load_dotenv(ENV_PATH)
+
+# DB 환경변수 불러오기
+DB_SETTINGS = {
+    "host": os.getenv("DB_HOST"),
+    "port": os.getenv("DB_PORT"),
+    "dbname": os.getenv("DB_NAME"),
+    "user": os.getenv("DB_USER"),
+    "password": os.getenv("DB_PASSWORD"),
+}
+
 # Scrapy settings for onestop_crawler project
 BOT_NAME = "school_crawler"
 
